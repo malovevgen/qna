@@ -1,8 +1,15 @@
 class AnswersController < ApplicationController
-  before_action :load_answer, only: :show
 
   def index
     @answers = question.answers
+  end
+
+  def show
+    load_answer
+  end
+
+  def new
+    @answer = Answer.new
   end
 
   private
