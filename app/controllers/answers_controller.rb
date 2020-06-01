@@ -15,7 +15,8 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = answers.create(answer_params)
+    @answer = @answers.create(answer_params)
+    redirect_to question_answers_path(question)
   end
 
   private
@@ -33,6 +34,6 @@ class AnswersController < ApplicationController
   end
 
   def answers
-    question.answers
+    @answers = question.answers
   end 
 end
