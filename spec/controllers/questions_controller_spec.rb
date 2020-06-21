@@ -32,6 +32,13 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #new' do
+    let(:user){ create(:user) }
+    
+    before do
+      @request.env['devise.mapping'] = Devise.mappings[:user]
+      sign_in(user)
+    end
+
     before { get :new }
 
     it 'assigns a new Question to @question' do
