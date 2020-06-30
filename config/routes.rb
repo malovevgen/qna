@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :questions, except: [:edit, :update, :destroy] do
+  resources :questions do
     resources :answers, except: [:edit, :update, :destroy]
   end
 
